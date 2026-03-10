@@ -8,10 +8,13 @@ int main() {
 	double a;
 	scanf("%lf", &a);
 	int b=a;
+	int q;
+	double p=abs(a*10-b*10);
+	printf("%d %lf\n",p,p);
 	if(a<0){
 	    printf("%d",1);
 	    for(int i=6;i>=0;i--){
-	        int q=pow(2,i);
+	        q=pow(2,i);
 	        if(b/q==-1){
 	            printf("%d",0);
 	            b/=q;
@@ -22,7 +25,7 @@ int main() {
 	}
 	else{
     	for(int i=7;i>=0;i--){
-    	    int q=pow(2,i);
+    	    q=pow(2,i);
     	    if(b/q==1){
     	        printf("%d",1);
     	        b/=q;
@@ -30,6 +33,16 @@ int main() {
     	    else
     	        printf("%d",0);
         }
+	}
+	printf(".");
+	for(int i=7;i>=0;i--){
+	    p*=2;
+	    if(p>=10){
+	        printf("%d",1);
+	        p-=10;
+	    }
+	    else
+	        printf("%d",0);
 	}
     return 0;
 }
