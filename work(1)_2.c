@@ -2,8 +2,15 @@
 #include <stdio.h>
 
 int main() {
-	printf("�Է°�: ");
+	printf("입력값: ");
 	float a;
 	scanf("%f", &a);
-	printf();
+	int b=a/1;
+	for(int i=8;i>0;i--){
+	    if((b>>i)&1==1)
+	        printf("%d",1);
+	    else
+	        printf("%d",0);
+	}
+	return 0;
 }
