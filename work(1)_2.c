@@ -9,9 +9,9 @@ int main(){
     int q=a*pow(2,8);
     for(int i=15;i>=0;i--){
         if((q>>i)&1)
-            printf("%d",1);
+            printf("1");
         else
-            printf("%d",0);
+            printf("0");
         if(i==8)
             printf(".");
     }
