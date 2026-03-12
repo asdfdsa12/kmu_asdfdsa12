@@ -2,7 +2,7 @@
 
 int main() {
     char a[100];
-    fgets(a,sizeof(a),stdin);
+    fgets(a,sizeof(a),stdin); //VS에서는 gets_s(a,sizeof(a)); 가능
     int i=0;
     while(1){
         if(a[i]>=97)
