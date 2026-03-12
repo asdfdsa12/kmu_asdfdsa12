@@ -2,7 +2,7 @@
 
 int main() {
     char a[100];
-    scanf("%[^\n]",a);
+    fgets(a,sizeof(a),stdin);
     int i=0;
     while(1){
         if(a[i]>=97)
