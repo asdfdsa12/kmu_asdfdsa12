@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 int main(){
-    double a;
+    double a,p;
     scanf("%lf",&a);
     if(a==0){
         printf("0/0000 0000/0000 0000 0000 0000 0000 000");
@@ -18,8 +18,16 @@ int main(){
             exponent++;
         }
     }
-    else if(b==0&&a<0)
-        exponent--;
+    else{
+        if(a<0)
+            p=-a;
+        else
+            p=a;
+        while(p<1){
+            p*=2;
+            exponent--;
+        }
+    }
     int bias=exponent+127;
     if(a<0){
         printf("1/");
