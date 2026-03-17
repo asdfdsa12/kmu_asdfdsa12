@@ -23,4 +23,5 @@ int main(){
         if(i%4==3)
             printf(" ");
     }
+    return 0;
 }
