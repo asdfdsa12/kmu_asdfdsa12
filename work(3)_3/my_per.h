@@ -7,3 +7,4 @@ typedef struct {
 
 int gcd(int a, int b);
 ADT sim(ADT f);
+ADT check(char* v);
