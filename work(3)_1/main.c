@@ -8,6 +8,10 @@ int main() {
 	char oper;
 	char v1[50],v2[50];
 	scanf("%s %c %s", v1, &oper, v2);
+	if (oper == '/' && v2[0] == '0') {
+		printf("cannot be devided by zero");
+		return 0;
+	}
 	f1 = check(v1);
 	f2 = check(v2);
 	if (f1.den == 0 || f2.den == 0) {
