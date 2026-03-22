@@ -8,11 +8,16 @@
 함수 종료
 
 함수 LCM(정수 a, 정수 b)
-    a 나누기 함수 GCD(a, b) 곱하기 b 반환
+    a 나누기 함수 GCD(a, b)의 반환값 곱하기 b 반환
 함수 종료
 
 함수 main
     정수 a, b
     a, b 입력
-    "GCD: GCD(a, b), LCM: LCM(a, b)" 출력
+    a와 b가 0이라면 실행
+        "please use another number" 출력
+        함수 종료
+    a는 절대값 a
+    b는 절대값 b
+    "GCD: GCD(a, b)의 반환값, LCM: LCM(a, b)의 반환값" 출력
 함수 종료
