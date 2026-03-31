@@ -12,11 +12,11 @@ int main() {
 
 	scanf("%d", &n);
 
-	q = (int*)malloc(sizeof(q) * n);
+	q = (int*)malloc(sizeof(int) * n);
 
 	srand(time(NULL));
 
-	printf("\nÃ³À½¿¡¼­ ³¡:\n");
+	printf("\nì²˜ìŒì—ì„œ ë:\n");
 
 	for (int i = 0; i < n; i++) {
 		q[i] = rand()%(n+1);
@@ -26,7 +26,7 @@ int main() {
 			max = q[i];
 	}
 
-	printf("\n\n³¡¿¡¼­ Ã³À½:\n");
+	printf("\n\nëì—ì„œ ì²˜ìŒ:\n");
 
 	min = *q;
 
@@ -36,5 +36,6 @@ int main() {
 			min = q[i];
 	}
 
-	printf("\n\nÃÑÇÕ: %d, ÃÖ´ë°ª: %d, ÃÖ¼Ò°ª: %d", sum,max,min);
+	printf("\n\nì´í•©: %d, ìµœëŒ€ê°’: %d, ìµœì†Œê°’: %d", sum,max,min);
+	free(q);
 }
