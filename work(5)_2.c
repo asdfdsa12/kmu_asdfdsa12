@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 3
+#define N 7
 
 int main(){
     int a[N][N];
@@ -29,7 +29,7 @@ int main(){
             xsum+=a[i][p];
             ysum[p]+=a[i][p];
         }
-        printf("    %d\n",xsum);
+        printf("  가로 합: %d\n",xsum);
     }
     printf("\n");
     for(int i=0;i<N;i++){
@@ -41,5 +41,5 @@ int main(){
         d1+=a[i][i];
         d2+=a[N-i-1][i];
     }
-    printf("\n우하향 대각선 합: %d, 우상향 대각선 합: %d",d1,d2);
+    printf(": 세로 합\n\n우하향 대각선 합: %d, 우상향 대각선 합: %d",d1,d2);
 }
