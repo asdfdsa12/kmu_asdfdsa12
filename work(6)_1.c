@@ -33,4 +33,5 @@ int main() {
 	}
 
 	printf("\n\n총합: %d, 최대값: %d, 최소값: %d", sum, max, min);
+	free(q);
 }
