@@ -6,7 +6,7 @@ int main(){
     int N;
     scanf("%d",&N);
     int** a;
-    a=(int**)malloc(N*N*sizeof(int*));
+    a=(int**)malloc(N*sizeof(int*));
     for(int i=0;i<N;i++){
         *(a+i)=(int*)malloc(N*sizeof(int));
     }
