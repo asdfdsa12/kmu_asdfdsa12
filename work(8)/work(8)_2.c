@@ -10,6 +10,8 @@ int fib(int a) {
 int main() {
 	int N;
 	scanf("%d", &N);
-	int q = fib(N);
-	printf("%d", q);
+	for (int i = 1; i <= N; i++) {
+		int q = fib(N);
+	}
+	return 0;
 }
