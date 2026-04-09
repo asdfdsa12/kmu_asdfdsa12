@@ -1,6 +1,7 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int fibo(int a) {
+int fib(int a) {
 	int f1 = 1;
 	int f2 = 1;
 	if (a <= 2)
@@ -17,6 +18,9 @@ int fibo(int a) {
 }
 
 int main() {
-	int n = fibo(10);
-	printf("%d", n);
+	int N,q;
+	scanf("%d", &N);
+	for (int i = 1; i <= N; i++) {
+		q=fib(i);
+	}
 }
