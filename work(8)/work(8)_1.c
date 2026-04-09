@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int fib(int a) {
@@ -18,9 +17,9 @@ int fib(int a) {
 }
 
 int main() {
-	int N,q;
-	scanf("%d", &N);
-	for (int i = 1; i <= N; i++) {
-		q=fib(i);
+	int q;
+	for (int N = 1;;N++) {
+		q=fib(N);
 	}
+	return 0;
 }
