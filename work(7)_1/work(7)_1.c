@@ -30,12 +30,26 @@ int main() {
 	kmu = (struct student*)malloc(N*sizeof(struct student));
 	
 	char stname[30];
+	char namelist[100][30];
+
+	for (int i = 0;i < N;i++) {
+		fgets(stname, sizeof(stname), name);
+		stname[strlen(stname) - 1] = '\0';
+		strcpy(namelist[i], stname);
+		memset(stname, 0, sizeof(stname));
+	}
+
+	for (int i = 0;i < N;i++) {
+		int ran1 = rand() % N;
+		int ran2 = rand() % N;
+		char temp[30];
+		strcpy(temp, namelist[ran1]);
+		strcpy(namelist[ran1], namelist[ran2]);
+		strcpy(namelist[ran2], temp);
+	}
 	
 	for(int i=0;i<N;i++){
-	    fgets(stname, sizeof(stname), name);
-	    stname[strlen(stname)-1]='\0';
-		strcpy(kmu[i].name, stname);
-		memset(stname, 0, sizeof(stname));
+		strcpy(kmu[i].name, namelist[i]);
 		kmu[i].number = i+1;
 		kmu[i].score = rand() % 100+1;
 		
