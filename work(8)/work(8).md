@@ -47,6 +47,7 @@ int main() {
 
 
 실행 소요시간 및 점유율, 호출 횟수
+
 <img width="759" height="95" alt="image" src="https://github.com/user-attachments/assets/dc7ccdef-861e-4c0a-880a-f45f2e0e6b29" />
 
 시간 점유율에 따른 플레임 그래프
