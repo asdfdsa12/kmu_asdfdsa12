@@ -29,8 +29,8 @@ int main() {
 #include <stdio.h>
 
 int fib(int a) {
-	if (a <= 1)
-		return a;
+	if (a <= 2)
+		return 1;
 	return fib(a - 1) + fib(a - 2);
 }
 
