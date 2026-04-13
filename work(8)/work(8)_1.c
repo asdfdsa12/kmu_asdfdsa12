@@ -18,7 +18,7 @@ int fib(int a) {
 
 int main() {
 	int q;
-	for (int N = 1;;N++) {
+	for (int N = 1; N<=40; N++) {
 		q=fib(N);
 	}
 	return 0;
