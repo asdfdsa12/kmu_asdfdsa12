@@ -53,7 +53,7 @@ int insertArrayList(arrayList* al,
 	}
 
 	for (int i = al->size; i >= pos; i--) {
-		al->data[i + 1] = al->data[i];
+		al->data[i] = al->data[i-1];
 	}
 
 	al->data[pos] = item;
@@ -83,6 +83,7 @@ int initArrayList(arrayList* al) {
 	for (int i = al->size - 1; i >= 0; i--) {
 		deleteArrayList(al, i);
 	}
+	return 1;
 }
 
 elementArrayList getItemArrayList(
