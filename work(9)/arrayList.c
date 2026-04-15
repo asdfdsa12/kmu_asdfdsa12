@@ -1,86 +1,111 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "arrayList.h"
 
-int dataMovement = 0;
+arrayList* createArrayList(int size) {
+	arrayList* al;
+	al = (arrayList*)malloc(sizeof(arrayList));
 
-AL* createArrayList(int size) {
-	AL* arr = (AL*)malloc(sizeof(AL));
-	arr->data = (elementArrayList*)malloc(sizeof(elementArrayList) * size);
-	arr->size = 0;
-	arr->capacity = size;
-	return arr;
+	al->data = (elementArrayList*)malloc(
+		sizeof(elementArrayList) * size);
+	al->size = 0;
+	al->capacity = size;
+
+	return al;
 }
 
-void destroyArrayList(AL* arr) {
-	free(arr->data);
-	free(arr);
+void destroyArrayList(arrayList* al) {
+	free(al->data);
+	free(al);
 }
 
-int isEmptyArrayList(AL* arr) {
-	if (arr->size == 0)
+int isEmptyArrayList(arrayList* al) {
+	if (al->size == 0) {
 		return 1;
-	else
+	}
+	else {
 		return 0;
+	}
 }
 
-int isFullArrayList(AL* arr) {
-	if (arr->size == arr->capacity)
+int isFullArrayList(arrayList* al) {
+	if (al->size == al->capacity) {
 		return 1;
-	else
-		return 0;
-}
-
-int sizeArrayList(AL* arr) {
-	return arr->size;
-}
-
-int insertArrayList(AL* arr, int pos, elementArrayList item) {
-	if (pos<0 || pos>arr->size) {
+	}
+	else {
 		return 0;
 	}
-	for (int i = arr->size; i >= pos; i--) {
-		arr->data[i + 1] = arr->data[i];
-		dataMovement++;
-	}
-	arr->data[pos] = item;
-	arr->size++;
-	return 0;
 }
 
-elementArrayList deleteArrayList(AL* arr, int pos) {
-	if (pos<0 || pos>arr->size-1) {
+int sizeArrayList(arrayList* al) {
+	return al->size;
+}
+
+int insertArrayList(arrayList* al,
+	int pos, elementArrayList item) {
+	if (al->size == al->capacity) {
+		al->data = (elementArrayList*)realloc(al->data, sizeof(elementArrayList) * (al->size + 1));
+		al->capacity++;
+	}
+	if (pos < 0 || pos > al->size) {
 		return 0;
 	}
-	elementArrayList item = arr->data[pos];
-	for (int i = pos; i < arr->size-1; i++) {
-		arr->data[i] = arr->data[i + 1];
-		dataMovement++;
+
+	for (int i = al->size; i >= pos; i--) {
+		al->data[i + 1] = al->data[i];
 	}
-	arr->size--;
+
+	al->data[pos] = item;
+	al->size++;
+
+	return 1;
+}
+
+elementArrayList deleteArrayList(
+	arrayList* al, int pos) {
+	if (pos < 0 || pos > al->size - 1) {
+		return 0;
+	}
+
+	elementArrayList item = al->data[pos];
+
+	for (int i = pos; i < al->size - 1; i++) {
+		al->data[i] = al->data[i + 1];
+	}
+
+	al->size--;
+
 	return item;
 }
 
-void initArrayList(AL* arr) {
-	for (int i = arr->size - 1; i >= 0; i--) {
-		deleteArrayList(arr, i);
+int initArrayList(arrayList* al) {
+	for (int i = al->size - 1; i >= 0; i--) {
+		deleteArrayList(al, i);
 	}
 }
 
-elementArrayList getItemArrayList(AL* arr, int pos) {
-	return arr->data[pos];
+elementArrayList getItemArrayList(
+	arrayList* al, int pos) {
+	return al->data[pos];
 }
 
-int replaceItemArrayList(AL* arr, int pos, elementArrayList item) {
-	if (pos<0 || pos>arr->size - 1)
+int replaceItemArrayList(arrayList* al,
+	int pos, elementArrayList item) {
+	if (pos < 0 || pos > al->size - 1) {
 		return 0;
-	arr->data[pos] = item;
-	return 0;
+	}
+
+	al->data[pos] = item;
+
+	return 1;
 }
 
-void printArrayList(AL* arr) {
-	for (int i = 0; i < arr->size; i++) {
-		printf("%d ", arr->data[i]);
+void printArrayList(arrayList* al) {
+	printf("순차 리스트: ");
+
+	for (int i = 0; i < al->size; i++) {
+		printf("%d ", al->data[i]);
 	}
 	printf("\n");
 }
