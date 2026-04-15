@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "arrayList.h"
 
 int main() {
@@ -17,7 +18,9 @@ int main() {
 
 	printArrayList(myArrayList);
 
-	printf("%d %d\n", myArrayList->size, myArrayList->capacity);
-	destroyArrayList(myArrayList);
-	return 0;
+	deleteArrayList(myArrayList, 0);
+	deleteArrayList(myArrayList, 1);
+	deleteArrayList(myArrayList, 2);
+
+	printArrayList(myArrayList);
 }
