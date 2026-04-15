@@ -3,21 +3,21 @@
 #include "arrayList.h"
 
 int main() {
-	AL* arr = createArrayList(100);
-	if (sizeArrayList(arr) == 0)
-		printf("OK\n");
-	insertArrayList(arr, 0, 10);
-	insertArrayList(arr, 1, 20);
-	insertArrayList(arr, 2, 30);
-	insertArrayList(arr, 0, 5);
+	arrayList* myArrayList;
+	myArrayList = createArrayList(0);
 
-	printArrayList(arr);
-	
-	deleteArrayList(arr, 0);
-	deleteArrayList(arr, 1);
-	deleteArrayList(arr, 2);
+	if (sizeArrayList(myArrayList) == 0) {
+		printf("Create ok\n");
+	}
 
-	printArrayList(arr);
+	insertArrayList(myArrayList, 0, 10);
+	insertArrayList(myArrayList, 1, 20);
+	insertArrayList(myArrayList, 2, 30);
+	insertArrayList(myArrayList, 0, 5);
 
-	destroyArrayList(arr);
+	printArrayList(myArrayList);
+
+	printf("%d %d\n", myArrayList->size, myArrayList->capacity);
+	destroyArrayList(myArrayList);
+	return 0;
 }
