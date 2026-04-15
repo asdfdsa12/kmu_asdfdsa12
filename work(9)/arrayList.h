@@ -7,16 +7,20 @@ typedef struct arrayListType {
 	elementArrayList* data;
 	int size;
 	int capacity;
-} AL;
+} arrayList;
 
-extern AL* createArrayList(int size);
-extern void destroyArrayList(AL* arr);
-extern int isEmptyArrayList(AL* arr);
-extern int isFullArrayList(AL* arr);
-extern int sizeArrayList(AL* arr);
-extern int insertArrayList(AL* arr, int pos, elementArrayList item);
-extern elementArrayList deleteArrayList(AL* arr, int pos);
-extern void initArrayList(AL* arr);
-extern elementArrayList getItemArrayList(AL* arr, int pos);
-extern int replaceItemArrayList(AL* arr, int pos, elementArrayList item);
-extern void printArrayList(AL* arr);
+extern arrayList* createArrayList(int size);
+extern void destroyArrayList(arrayList* al);
+extern int isEmptyArrayList(arrayList* al);
+extern int isFullArrayList(arrayList* al);
+extern int sizeArrayList(arrayList* al);
+extern int insertArrayList(arrayList* al,
+	int pos, elementArrayList item);
+extern elementArrayList deleteArrayList(
+	arrayList* al, int pos);
+extern int initArrayList(arrayList* al);
+extern elementArrayList getItemArrayList(
+	arrayList* al, int pos);
+extern int replaceItemArrayList(arrayList* al,
+	int pos, elementArrayList item);
+extern void printArrayList(arrayList* al);
