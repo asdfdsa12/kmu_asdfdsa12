@@ -95,6 +95,8 @@ elementArrayList getItemArrayList(
 
 int replaceItemArrayList(arrayList* al,
 	int pos, elementArrayList item) {
+	if(item<=0)
+	    return 0;
 	if (pos < 0 || pos > al->size - 1) {
 		return 0;
 	}
