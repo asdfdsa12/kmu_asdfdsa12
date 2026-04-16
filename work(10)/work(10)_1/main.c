@@ -24,6 +24,7 @@ int main() {
 	printArrayList(myArrayList);
 	
 	replaceItemArrayList(myArrayList, 0, 50);
+	replaceItemArrayList(myArrayList, 0, -50);
 	
 	printArrayList(myArrayList);
 	
