@@ -20,32 +20,14 @@ void destroyArrayList(arrayList* al) {
 	free(al);
 }
 
-int isEmptyArrayList(arrayList* al) {
-	if (al->size == 0) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
-}
-
-int isFullArrayList(arrayList* al) {
-	if (al->size == al->capacity) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
-}
-
 int sizeArrayList(arrayList* al) {
 	return al->size;
 }
 
-int insertArrayList(arrayList* al,
+int insert(arrayList* al,
 	int pos, elementArrayList item) {
-	if(item<=0)
-	    return 0;
+	if (item <= 0)
+		return 0;
 	if (al->size == al->capacity) {
 		al->data = (elementArrayList*)realloc(al->data, sizeof(elementArrayList) * (al->size + 1));
 		al->capacity++;
@@ -55,7 +37,7 @@ int insertArrayList(arrayList* al,
 	}
 
 	for (int i = al->size; i >= pos; i--) {
-		al->data[i] = al->data[i-1];
+		al->data[i] = al->data[i - 1];
 	}
 
 	al->data[pos] = item;
@@ -64,7 +46,7 @@ int insertArrayList(arrayList* al,
 	return 1;
 }
 
-elementArrayList deleteArrayList(
+elementArrayList delete(
 	arrayList* al, int pos) {
 	if (pos < 0 || pos > al->size - 1) {
 		return 0;
@@ -81,22 +63,17 @@ elementArrayList deleteArrayList(
 	return item;
 }
 
-int initArrayList(arrayList* al) {
+int clear(arrayList* al) {
 	for (int i = al->size - 1; i >= 0; i--) {
-		deleteArrayList(al, i);
+		delete(al, i);
 	}
 	return 1;
 }
 
-elementArrayList getItemArrayList(
-	arrayList* al, int pos) {
-	return al->data[pos];
-}
-
-int replaceItemArrayList(arrayList* al,
+int replace(arrayList* al,
 	int pos, elementArrayList item) {
-	if(item<=0)
-	    return 0;
+	if (item <= 0)
+		return 0;
 	if (pos < 0 || pos > al->size - 1) {
 		return 0;
 	}
@@ -106,7 +83,7 @@ int replaceItemArrayList(arrayList* al,
 	return 1;
 }
 
-void printArrayList(arrayList* al) {
+void print(arrayList* al) {
 	printf("순차 리스트: ");
 
 	for (int i = 0; i < al->size; i++) {
