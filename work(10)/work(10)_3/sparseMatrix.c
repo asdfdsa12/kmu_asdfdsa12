@@ -12,7 +12,9 @@ int addElementSparseMatrix(sparseMatrix* sm, int row, int col, int value) {
 	size = sizeArrayList(sm);
 
 	insertArrayList(sm, size,
-		(elementArrayList) {row, col, value});
+		(elementArrayList) {
+		row, col, value
+	});
 }
 
 int printSparseMatrix(sparseMatrix* sm) {
@@ -21,22 +23,22 @@ int printSparseMatrix(sparseMatrix* sm) {
 
 sparseMatrix* addSparseMatrix(sparseMatrix* sm1, sparseMatrix* sm2) {
 	sparseMatrix* smResult = createArrayList(100);
-	
+
 	for (int i = 0; i < sizeArrayList(sm1); i++) {
-		elementArrayList nonZeroOfSM1 
+		elementArrayList nonZeroOfSM1
 			= getItemArrayList(sm1, i);
 
 		int j;
 		for (j = 0; j < sizeArrayList(sm2); j++) {
 			elementArrayList nonZeroOfSM2
-				= getItemArrayList(sm2, i);
+				= getItemArrayList(sm2, j);
 
 			if (nonZeroOfSM1.col == nonZeroOfSM2.col &&
 				nonZeroOfSM1.row == nonZeroOfSM2.row) {
-				insertArrayList(smResult, sizeArrayList(smResult), (elementArrayList){ 
-					nonZeroOfSM1.row, 
-					nonZeroOfSM1.col, 
-					nonZeroOfSM1.value + nonZeroOfSM2.value 
+				insertArrayList(smResult, sizeArrayList(smResult), (elementArrayList) {
+					nonZeroOfSM1.row,
+						nonZeroOfSM1.col,
+						nonZeroOfSM1.value + nonZeroOfSM2.value
 				});
 
 				break;
@@ -46,6 +48,26 @@ sparseMatrix* addSparseMatrix(sparseMatrix* sm1, sparseMatrix* sm2) {
 		if (j == sizeArrayList(sm2)) {
 			insertArrayList(smResult, sizeArrayList(smResult),
 				nonZeroOfSM1);
+		}
+	}
+	for (int i = 0; i < sizeArrayList(sm2); i++) {
+		elementArrayList nonZeroOfSM2
+			= getItemArrayList(sm2, i);
+
+		int j;
+		for (j = 0; j < sizeArrayList(sm2); j++) {
+			elementArrayList nonZeroOfSM1
+				= getItemArrayList(sm1, j);
+
+			if (nonZeroOfSM1.col == nonZeroOfSM2.col &&
+				nonZeroOfSM1.row == nonZeroOfSM2.row) {
+				break;
+			}
+		}
+
+		if (j == sizeArrayList(sm2)) {
+			insertArrayList(smResult, sizeArrayList(smResult),
+				nonZeroOfSM2);
 		}
 	}
 
