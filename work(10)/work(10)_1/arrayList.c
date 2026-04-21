@@ -26,8 +26,10 @@ int sizeArrayList(arrayList* al) {
 
 int insert(arrayList* al,
 	int pos, elementArrayList item) {
-	if (item <= 0)
+	if (item <= 0) {
+		printf("양수를 입력해주세요. insert 입력값: %d\n",item);
 		return 0;
+	}
 	if (al->size == al->capacity) {
 		al->data = (elementArrayList*)realloc(al->data, sizeof(elementArrayList) * (al->size + 1));
 		al->capacity++;
@@ -72,8 +74,10 @@ int clear(arrayList* al) {
 
 int replace(arrayList* al,
 	int pos, elementArrayList item) {
-	if (item <= 0)
+	if (item <= 0) {
+		printf("양수를 입력해주세요. replace 입력값: %d\n",item);
 		return 0;
+	}
 	if (pos < 0 || pos > al->size - 1) {
 		return 0;
 	}
