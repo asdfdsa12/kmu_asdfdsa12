@@ -61,6 +61,7 @@ int insertArrayList(arrayList* al,
 elementArrayList deleteArrayList(
 	arrayList* al, int pos) {
 	if (pos < 0 || pos > al->size - 1) {
+		return;
 	}
 
 	elementArrayList item = al->data[pos];
