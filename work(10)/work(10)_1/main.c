@@ -11,27 +11,27 @@ int main() {
 		printf("Create ok\n");
 	}
 
-	insertArrayList(myArrayList, 0, 10);
-	insertArrayList(myArrayList, 1, 20);
-	insertArrayList(myArrayList, 2, -30);
-	insertArrayList(myArrayList, 0, 5);
+	insert(myArrayList, 0, 10);
+	insert(myArrayList, 1, 20);
+	insert(myArrayList, 2, -30);
+	insert(myArrayList, 0, 5);
 
-	printArrayList(myArrayList);
+	print(myArrayList);
 
-	deleteArrayList(myArrayList, 0);
-	deleteArrayList(myArrayList, 1);
+	delete(myArrayList, 0);
+	delete(myArrayList, 1);
 
-	printArrayList(myArrayList);
-	
-	replaceItemArrayList(myArrayList, 0, 50);
-	replaceItemArrayList(myArrayList, 0, -50);
-	
-	printArrayList(myArrayList);
-	
-	initArrayList(myArrayList);
-	printArrayList(myArrayList);
-	
+	print(myArrayList);
+
+	replace(myArrayList, 0, 50);
+	replace(myArrayList, 0, -50);
+
+	print(myArrayList);
+
+	clear(myArrayList);
+	print(myArrayList);
+
 	destroyArrayList(myArrayList);
-	
+
 	return 0;
 }
