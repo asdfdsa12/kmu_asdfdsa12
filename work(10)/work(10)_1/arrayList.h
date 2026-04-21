@@ -11,16 +11,12 @@ typedef struct arrayListType {
 
 extern arrayList* createArrayList(int size);
 extern void destroyArrayList(arrayList* al);
-extern int isEmptyArrayList(arrayList* al);
-extern int isFullArrayList(arrayList* al);
 extern int sizeArrayList(arrayList* al);
-extern int insertArrayList(arrayList* al,
+extern int insert(arrayList* al,
 	int pos, elementArrayList item);
-extern elementArrayList deleteArrayList(
+extern elementArrayList delete(
 	arrayList* al, int pos);
-extern int initArrayList(arrayList* al);
-extern elementArrayList getItemArrayList(
-	arrayList* al, int pos);
-extern int replaceItemArrayList(arrayList* al,
+extern int clear(arrayList* al);
+extern int replace(arrayList* al,
 	int pos, elementArrayList item);
-extern void printArrayList(arrayList* al);
+extern void print(arrayList* al);
