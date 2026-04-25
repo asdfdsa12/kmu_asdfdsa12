@@ -43,7 +43,7 @@ polynomial* addPolynomial(polynomial* p1, polynomial* p2) {
 		else {
 			addItemPolynomial(r, (elementType) {
 				p1->data[i].coef + p2->data[j].coef,
-				p1->data[i].expo
+					p1->data[i].expo
 			});
 
 			i++;
@@ -62,28 +62,16 @@ void printPolynomial(polynomial* po) {
 	printf("\n");
 }
 
-polynomial* timePolynomial(polynomial* p1, polynomial* p2){
-    polynomial* r = createPolynomial(100);
+polynomial* timePolynomial(polynomial* p1, polynomial* p2) {
+	polynomial* r = createPolynomial(100);
 
 	int i = 0, j = 0;
 
-	while (i < sizeArrayList(p1) || j < sizeArrayList(p2)) {
-		if (p1->data[i].expo < p2->data[j].expo) {
-			addItemPolynomial(r, p2->data[j]);
-			j++;
-		}
-		else if (p1->data[i].expo > p2->data[j].expo) {
-			addItemPolynomial(r, p1->data[i]);
-			i++;
-		}
-		else {
-			addItemPolynomial(r, (elementType) {
-				p1->data[i].coef * p2->data[j].coef,
-				p1->data[i].expo+p2->data[j].expo
-			});
-
-			i++;
-			j++;
+	for (i = 0; i < p1->size; i++) {
+		for (j = 0; j < p2->size; j++) {
+			int coef = p1->data[i].coef * p2->data[j].coef;
+			int expo = p1->data[i].expo + p2->data[j].expo;
+			addItemPolynomial(r, (elementType) { coef, expo });
 		}
 	}
 
