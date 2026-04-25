@@ -6,24 +6,24 @@
 
 int main() {
 	polynomial* p1 = createPolynomial(100);
-	int co,ex;
+	int co, ex;
 	char plus;
-	while(1){
-	    scanf("%dX^%d%c",&co,&ex,&plus);
-	    addItemPolynomial(p1, (elementType){co,ex});
-	    if(plus!='+')
-	        break;
+	while (1) {
+		scanf("%dX^%d%c", &co, &ex, &plus);
+		addItemPolynomial(p1, (elementType) { co, ex });
+		if (plus != '+')
+			break;
 	}
-	
+
 	printPolynomial(p1);
 
 	polynomial* p2 = createPolynomial(100);
 
-	while(1){
-	    scanf("%dX^%d%c",&co,&ex,&plus);
-	    addItemPolynomial(p2, (elementType){co,ex});
-	    if(plus!='+')
-	        break;
+	while (1) {
+		scanf("%dX^%d%c", &co, &ex, &plus);
+		addItemPolynomial(p2, (elementType) { co, ex });
+		if (plus != '+')
+			break;
 	}
 
 	printPolynomial(p2);

@@ -101,7 +101,7 @@ void printArrayList(arrayList* al) {
 	printf("Array List: ");
 
 	for (int i = 0; i < al->size; i++) {
-		printf("(%d %d)", al->data[i].coef, 
+		printf("(%d %d)", al->data[i].coef,
 			al->data[i].expo);
 	}
 }
