@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct pointType {
+	int item;
+	struct pointType* next;
+} PointType;
+
+typedef struct linkedList {
+	struct pointType* head;
+	int size;
+} LinkedList;
+
+extern LinkedList* createLinkedList();
+extern int destroyLinkedList(LinkedList* li);
+extern int sizeLinkedList(LinkedList* li);
+extern LinkedList* insertFirstLinkedList(LinkedList* li, PointType item);
+extern int printLinkedList(LinkedList* li);
+extern LinkedList* insertLastLinkedList(LinkedList* li, PointType item);
+extern LinkedList* deleteAtLinkedList(LinkedList* li, int at);
+extern LinkedList* insertAtLinkedList(LinkedList* li, int at, PointType item);
